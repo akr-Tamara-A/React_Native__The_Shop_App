@@ -1,8 +1,9 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
 import {Provider} from 'react-redux';
 import {createStore, combineReducers} from 'redux';
 import productsReducer from './store/reducers/products';
+import ShopNavigator from './navigation/ShopNaviagator';
+import {NavigationContainer} from '@react-navigation/native';
 
 const rootReducer = combineReducers({
   products: productsReducer,
@@ -12,17 +13,11 @@ const store = createStore(rootReducer);
 const App = () => {
   return (
     <Provider store={store}>
-      <SafeAreaView style={styles.screen} />
+      <NavigationContainer>
+        <ShopNavigator />
+      </NavigationContainer>
     </Provider>
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignContent: 'center',
-  },
-});
 
 export default App;
