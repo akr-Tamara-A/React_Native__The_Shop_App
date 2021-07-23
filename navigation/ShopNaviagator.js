@@ -1,26 +1,19 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import ProductsOwerviewScreen from '../screens/shop/ProductsOverwviewScreen';
-import {COLORS} from '../constants/colors';
-import {Platform} from 'react-native';
+import ProductsOverviewScreen from '../screens/shop/ProductsOverviewScreen';
+import {defaultHeaderStyle} from '../styles/defaultHeaderStyle';
 
 const ProductsStack = createStackNavigator();
 
 const ShopNavigator = () => {
   return (
-    <ProductsStack.Navigator>
+    <ProductsStack.Navigator
+      screenOptions={{
+        ...defaultHeaderStyle,
+      }}>
       <ProductsStack.Screen
         name="All Products"
-        component={ProductsOwerviewScreen}
-        options={() => ({
-          headerStyle: {
-            backgroundColor:
-              Platform.OS === 'android' ? COLORS.primary : 'white',
-          },
-          headerTitleStyle: {
-            color: Platform.OS === 'android' ? 'white' : COLORS.primary,
-          },
-        })}
+        component={ProductsOverviewScreen}
       />
     </ProductsStack.Navigator>
   );
