@@ -2,7 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {createStore, combineReducers} from 'redux';
 import productsReducer from './store/reducers/products';
-import ShopNavigator from './navigation/ShopNaviagator';
+import DrawerNavigator from './navigation/DrawerNavigator';
 import {NavigationContainer} from '@react-navigation/native';
 
 const rootReducer = combineReducers({
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <ShopNavigator />
+        <DrawerNavigator />
       </NavigationContainer>
     </Provider>
   );
