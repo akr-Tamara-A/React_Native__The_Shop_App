@@ -18,6 +18,7 @@ const ProductItem = ({product, onViewDetail, onAddToCart}) => {
   if (Platform.OS === 'android' && Platform.Version >= 21) {
     TouchableComponent = TouchableNativeFeedback;
   }
+
   return (
     <View style={styles.card}>
       <TouchableComponent onPress={onViewDetail} useForeground>
