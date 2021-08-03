@@ -37,14 +37,18 @@ const ProductsOverviewScreen = ({navigation}) => {
         renderItem={({item}) => (
           <ProductItem
             product={item}
-            onViewDetail={() => {
+            onSelect={() => {
               navigation.navigate('Product details', {
                 productId: item.id,
                 productTitle: item.title,
               });
             }}
-            onAddToCart={() => {
+            onAction={() => {
               dispatch(cartActions.addToCart(item));
+            }}
+            buttons={{
+              onSelect: 'View details',
+              onAction: 'To cart',
             }}
           />
         )}

@@ -12,7 +12,7 @@ import {Platform} from 'react-native';
 import RegularText from '../components/RegularText';
 import BoldText from '../components/BoldText';
 
-const ProductItem = ({product, onViewDetail, onAddToCart}) => {
+const ProductItem = ({product, onSelect, onAction, buttons}) => {
   let TouchableComponent = TouchableOpacity;
 
   if (Platform.OS === 'android' && Platform.Version >= 21) {
@@ -21,7 +21,7 @@ const ProductItem = ({product, onViewDetail, onAddToCart}) => {
 
   return (
     <View style={styles.card}>
-      <TouchableComponent onPress={onViewDetail} useForeground>
+      <TouchableComponent onPress={onSelect} useForeground>
         <View style={styles.imageContainer}>
           <Image source={{uri: product.imageUrl}} style={styles.image} />
         </View>
@@ -35,10 +35,14 @@ const ProductItem = ({product, onViewDetail, onAddToCart}) => {
       <View style={styles.actions}>
         <Button
           color={COLORS.primary}
-          title="View details"
-          onPress={onViewDetail}
+          title={buttons.onSelect}
+          onPress={onSelect}
         />
-        <Button color={COLORS.primary} title="To cart" onPress={onAddToCart} />
+        <Button
+          color={COLORS.primary}
+          title={buttons.onAction}
+          onPress={onAction}
+        />
       </View>
     </View>
   );
