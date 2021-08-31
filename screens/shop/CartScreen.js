@@ -7,7 +7,7 @@ import ListItem from '../../components/ListItem';
 import * as cartActions from '../../store/actions/cart';
 import * as orderActions from '../../store/actions/order';
 
-const CartScreen = () => {
+const CartScreen = ({navigation}) => {
   const cartTotalAmount = useSelector(state => state.cart.totalAmount);
 
   const cartItems = useSelector(state => {
@@ -57,6 +57,7 @@ const CartScreen = () => {
                 dispatch(cartActions.removeFromCart(item.prodId));
               }}
               deletable={true}
+              navigation={navigation}
             />
           )}
         />
