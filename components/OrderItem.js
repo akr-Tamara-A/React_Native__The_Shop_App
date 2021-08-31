@@ -12,7 +12,9 @@ const OrderItems = ({item}) => {
   return (
     <View style={styles.card}>
       <View style={styles.summary}>
-        <BoldText>${item.item.totalAmount.toFixed(2)}</BoldText>
+        <BoldText>
+          ${Math.round((item.item.totalAmount.toFixed(2) * 100) / 100)}
+        </BoldText>
         <RegularText>{item.item.readableDate}</RegularText>
       </View>
       <Button
